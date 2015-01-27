@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	cmd := exec.Command("ls", "-al")
+	cmd := exec.Command("ping", "localhost")
 	stdout, err := cmd.StdoutPipe()
 
 	if err != nil {
@@ -22,8 +22,8 @@ func main() {
 	for scanner.Scan() {
 		fmt.Println(scanner.Text())
 		fmt.Println()
+		break
 	}
 
 	cmd.Wait()
 }
-
